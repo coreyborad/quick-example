@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+
+package proto;
+
+option go_package = ".;proto";
+
+service BasicService {
+  rpc GetTimeAndName (ServerInfo) returns (ServerInfo);
+}
+
+message ServerInfo {
+  string name = 1;
+  google.protobuf.Timestamp time = 2;
+}

@@ -1,0 +1,15 @@
+version: "3"
+services:
+  ### App ###
+  golang:
+    build:
+      context: ./golang-docker
+      args:
+        - http_proxy
+        - https_proxy
+        - no_proxy
+    environment:
+      - TZ="Asia/Taipei"
+    volumes:
+      - ./go-grpc:/go/src:cached
+    tty: true
